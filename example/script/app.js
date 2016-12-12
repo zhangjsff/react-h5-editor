@@ -1,9 +1,40 @@
 import React, {PropTypes} from 'react';
 
 import PlayGround from '../../src/playground.jsx'
-import EditorGround from '../../src/edtiorground.jsx'
+import EditorGround from '../../src/editorground.jsx'
 
-const exampleData = []
+const exampleData = [
+  {
+    compName : 'text',
+    props : {
+      text : 'hello world'
+    }
+  },
+  {
+    compName : 'text',
+    props : {
+      text : 'hello world 2'
+    }
+  },
+  {
+    compName : 'text',
+    props : {
+      text : 'hello world 3'
+    }
+  },
+  {
+    compName : 'text',
+    props : {
+      text : 'hello world 4'
+    }
+  },
+  {
+    compName : 'text',
+    props : {
+      text : 'hello world 5'
+    }
+  },
+]
 
 export default class MyEditorExample extends React.Component {
   constructor(props) {
@@ -25,11 +56,15 @@ export default class MyEditorExample extends React.Component {
     this.setState({currentEditIndex})
   }
 
+  onElementDrag = (newData) => {
+    this.setState({data:newData})
+  }
+
   render() {
     let editElement = this.state.data[this.state.currentEditIndex]
     return (
       <div>
-        <PlayGround data={this.state.data} onElementClick={this.onElementClick}/>
+        <PlayGround data={this.state.data} onElementClick={this.onElementClick} onElementDrag={this.onElementDrag}/>
         <br/>
         <EditorGround elementData={editElement} onChange={this.onChange}/>
       </div>

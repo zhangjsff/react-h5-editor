@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "A editor structure for front and back system, edit page by cmoponents",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "find-parent": "^2.0.2"
+  },
   "devDependencies": {
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.9",
@@ -11,6 +13,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.26.1",
+    "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

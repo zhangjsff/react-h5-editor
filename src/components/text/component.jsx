@@ -19,10 +19,12 @@ export default class Text extends React.Component {
   }
 
   render() {
-    let props = this.props.props;
+    let props = this.props.props
+    let itemProps = this.props['data-props'];
+
     return (
-      <div className="react-h5-text" onClick={this.props.onClick}>
-        {props.text}
+      <div {...props} className="react-h5-text react-h5-playground-item" >
+        {itemProps.text}
       </div>
     );
   }

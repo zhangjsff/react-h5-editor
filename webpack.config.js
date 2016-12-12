@@ -11,6 +11,7 @@ module.exports = {
     module: {
       loaders: [
           { test : /\.(css)$/, loader : 'style!css'},
+          { test : /\.(less)$/, loader : 'style!css!less'},
 					{ test: /(\.js|\.jsx)$/, loader: 'babel',query : {
 							presets : [
 								// 'stage-3',
