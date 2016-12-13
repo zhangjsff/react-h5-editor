@@ -1,13 +1,14 @@
 import React, {PropTypes} from 'react';
-import * as compEditors from './components/compEditors.jsx'
-
+import * as comps from './components/comps.jsx'
+import CompSelecor from './selector.jsx'
 
 export default class EditorGround extends React.Component {
   static get defaultProps(){
     return {
       conf:{},
-      elementData:undefined,
-      onChange(){},
+      data : [],
+      elementIndex:undefined,
+      onUpdate(){},
     }
   }
 
@@ -15,26 +16,40 @@ export default class EditorGround extends React.Component {
     super(props);
   }
 
+  componentWillUpdate(nextProps){
+    this.elementData = nextProps.data[nextProps.currentIndex]
+    return true
+  }
+
   onChange = (newElementData) => {
-    newElementData.compName = this.props.elementData.compName
-    this.props.onChange(newElementData);
+    newElementData.compName = this.elementData.compName
+    let newData = this.props.data;
+    newData[this.props.elementIndex] = newElementData
+    this.props.onUpdate(newData);
   }
 
   render() {
 
     return (
       <div>
-        {this._renderEditor()}
+        {this._renderEditor()}        
       </div>
     );
   }
 
   _renderEditor(){
-    if(!this.props.elementData){ return }
+    if(!this.elementData){ return }
 
-    let editor = this.props.elementData;
+    let editor = this.elementData;
+    let comp =   comps[editor.compName].editor;
+
+    //todo if !comp try customer comp
+    if(!comp){
+
+    }
+
     return React.createElement(
-      compEditors[editor.compName + 'Editor'],
+      comp,
       {
         compName : editor.compName,
         props : editor.props,
@@ -42,4 +57,5 @@ export default class EditorGround extends React.Component {
       }
     )
   }
+
 }

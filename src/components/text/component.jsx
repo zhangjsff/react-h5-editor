@@ -30,6 +30,9 @@ export default class Text extends React.Component {
   }
 }
 
+import _info from './info.jsx'
+export {_info as info}
+
 Text.propTypes = {
   name:PropTypes.string,
   props:PropTypes.object,

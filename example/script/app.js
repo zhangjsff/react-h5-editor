@@ -1,7 +1,5 @@
 import React, {PropTypes} from 'react';
-
-import PlayGround from '../../src/playground.jsx'
-import EditorGround from '../../src/editorground.jsx'
+import {PlayGround,EditGround,EditSelector} from '../../src/index.js';
 
 const exampleData = [
   {
@@ -46,27 +44,32 @@ export default class MyEditorExample extends React.Component {
     }
   }
 
-  onChange = (newElementData) => {
-    let data = this.state.data
-    data[this.state.currentEditIndex] = newElementData
-    this.setState({data})
+  onUpdate = (newData) => {
+    this.setState({data:newData})
   }
 
   onElementClick = (currentEditIndex,item) => {
     this.setState({currentEditIndex})
   }
 
-  onElementDrag = (newData) => {
-    this.setState({data:newData})
-  }
-
   render() {
     let editElement = this.state.data[this.state.currentEditIndex]
     return (
       <div>
-        <PlayGround data={this.state.data} onElementClick={this.onElementClick} onElementDrag={this.onElementDrag}/>
+        <PlayGround
+          data={this.state.data}
+          currentIndex={this.state.currentEditIndex}
+          onElementClick={this.onElementClick}
+          onUpdate={this.onUpdate} />
         <br/>
-        <EditorGround elementData={editElement} onChange={this.onChange}/>
+        <EditGround
+          data={this.state.data}
+          currentIndex={this.state.currentEditIndex}
+          onUpdate={this.onUpdate} />
+        <br/>
+        <EditSelector
+          data={this.state.data}
+          onUpdate={this.onUpdate} />
       </div>
     );
   }

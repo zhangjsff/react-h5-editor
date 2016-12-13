@@ -1,2 +1,2 @@
-import _text from './text/component.jsx';
-export {_text as text}
+import * as _text from './text/info.jsx';
+export const text = _text

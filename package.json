@@ -1,6 +1,6 @@
 {
   "name": "react-h5-page-editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A editor structure for front and back system, edit page by cmoponents",
   "main": "index.js",
   "dependencies": {

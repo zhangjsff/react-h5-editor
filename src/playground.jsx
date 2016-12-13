@@ -26,7 +26,7 @@ export default class Playground extends React.Component {
       },
       data : [],
       onElementClick(){},
-      onElementDrag(){}
+      onUpdate(){},
     }
   }
 
@@ -35,6 +35,9 @@ export default class Playground extends React.Component {
   }
 
   onElementClick(index,item){
+    if(index == this.props.currentIndex){
+      index = -1;
+    }
     this.props.onElementClick(index,item)
   }
 
@@ -44,7 +47,7 @@ export default class Playground extends React.Component {
       let from = this.dragged.dataset.index;
       let to = this.over.dataset.index;
       let newData = switchElement(from,to,this.props.data)
-      this.props.onElementDrag(newData)
+      this.props.onUpdate(newData)
     }
   }
 
@@ -74,12 +77,15 @@ export default class Playground extends React.Component {
   _renderComponents(){
 
     return this.props.data.map((item,index) => {
-      let comp = comps[item.compName]
+
+      let comp = comps[item.compName].comp
+      let isSelected = (index == this.props.currentIndex)
       return React.createElement(comp,{
         key:index,
         props:{
           draggable:true,
           'data-index':index+1,
+          'data-selected' : isSelected,
           onDragEnd:this._dragEnd.bind(this),
           onDragStart:this._dragStart.bind(this),
           onClick:this.onElementClick.bind(this,index,item)
