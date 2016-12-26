@@ -11,7 +11,8 @@ An editor for front and back system, edit page by components.
 
 ##EditorSelector
 `import {EditorSelector} from 'react-h5-page-editor'`
-
+---
+To see examples by click [example code](https://github.com/zhangjsff/react-h5-editor/tree/master/example)
 ---
 
 ###0.1.2
