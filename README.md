@@ -1,19 +1,20 @@
 # react-h5-editor
 An editor for front and back system, edit page by components.
 
----
+## Install
+  `npm i -S react-h5-page-editor`
 
-##PlayGround
-`import {PlayGround} from 'react-h5-page-editor'`
+## PlayGround
+  `import {PlayGround} from 'react-h5-page-editor'`
 
-##EditorGround
-`import {EditorGround} from 'react-h5-page-editor'`
+## EditorGround
+  `import {EditorGround} from 'react-h5-page-editor'`
 
-##EditorSelector
-`import {EditorSelector} from 'react-h5-page-editor'`
----
-To see examples by click [example code](https://github.com/zhangjsff/react-h5-editor/tree/master/example)
----
+## EditorSelector
+  `import {EditorSelector} from 'react-h5-page-editor'`
+  
+ to see examples by click [example code](https://github.com/zhangjsff/react-h5-editor/tree/master/example)
+
 
 ###0.1.2
 fixed readme, avaiable to use as a module.
@@ -35,8 +36,6 @@ fixed edit ground bugs, content index error
 ###0.0.3
 fixed main path
 
-##Install
-  `npm i -S react-h5-page-editor`
 
 ##Styles
 
