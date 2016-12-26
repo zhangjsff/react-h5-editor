@@ -10,12 +10,12 @@ export default class Space extends React.Component {
   }
 
   onChange = ({target:{value}}) =>{
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.height = parseInt(value);
     if(Number.isNaN(props.height)){return}
 
     this.props.onChange({props})
-    
+
   }
 
   render() {

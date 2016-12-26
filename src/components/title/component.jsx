@@ -31,8 +31,6 @@ export default class Title extends React.Component {
   }
 }
 
-import _info from './info.jsx'
-export {_info as info}
 
 Image.propTypes = {
   name:PropTypes.string,

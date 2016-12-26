@@ -9,13 +9,13 @@ export default class TitleEditor extends React.Component {
   }
 
   onChange = (e) => {
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.text = e.target.value;
     this.props.onChange({props})
   }
 
   onLevelChange = (e) => {
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.level = e.target.value;
     this.props.onChange({props})
   }

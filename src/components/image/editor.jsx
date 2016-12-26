@@ -46,13 +46,13 @@ export default class ImageEditor extends React.Component {
   }
 
   onChangeUrl = (e) => {
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.url = e.target.value;
     this.props.onChange({props})
   }
 
   onChangeDesc = (e) => {
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.desc = e.target.value;
     this.props.onChange({props})
   }

@@ -21,13 +21,13 @@ export default class LinkEditor extends React.Component {
 
 
   onChangeUrl = (e) => {
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.url = e.target.value;
     this.props.onChange({props})
   }
 
   onChangeLabel = (e) => {
-    let props = this.props.props;
+    let props = {...this.props.props};
     props.label = e.target.value;
     this.props.onChange({props})
   }
