@@ -1,8 +1,25 @@
 # react-h5-editor
-A editor structure for front and back system, edit page by cmoponents
+An editor for front and back system, edit page by components.
 
-##dont use it now! Please wait for serveral days.
 ---
+
+##PlayGround
+`import {PlayGround} from 'react-h5-page-editor'`
+
+##EditorGround
+`import {EditorGround} from 'react-h5-page-editor'`
+
+##EditorSelector
+`import {EditorSelector} from 'react-h5-page-editor'`
+
+---
+
+###0.1.2
+fixed readme, avaiable to use as a module.
+
+###0.1.1
+fixed component only mode.
+
 
 ###0.1.0
 almost avaiable to use, support extend components
@@ -19,12 +36,6 @@ fixed main path
 
 ##Install
   `npm i -S react-h5-page-editor`
-
-##PlayGround
-
-##EditorGround
-
-##EditorSelector
 
 ##Styles
 
