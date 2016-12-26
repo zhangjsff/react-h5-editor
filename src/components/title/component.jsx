@@ -2,13 +2,13 @@ require('./style.less');
 
 import React, {PropTypes} from 'react';
 
-export default class Text extends React.Component {
+export default class Title extends React.Component {
 
   static get defaultProps(){
     return {
-      name : 'react-h5-text',
+      name : 'react-h5-title',
       props:{
-        text : 'test text is here'
+        text: 'title'
       }
     }
   }
@@ -21,13 +21,12 @@ export default class Text extends React.Component {
   render() {
     let props = this.props.props
     let itemProps = this.props['data-props'];
-    itemProps.text = itemProps.text.replace(/\r?\n/g, '<br />');
+
     return (
-      <div {...props} className="react-h5-text react-h5-playground-item">
-        <div dangerouslySetInnerHTML={{__html: itemProps.text}} />
+      <div {...props} className={`react-h5-title react-h5-playground-item ${itemProps.level}`} >
+        {itemProps.text}
         {this.props.children}
       </div>
-
     );
   }
 }
@@ -35,7 +34,7 @@ export default class Text extends React.Component {
 import _info from './info.jsx'
 export {_info as info}
 
-Text.propTypes = {
+Image.propTypes = {
   name:PropTypes.string,
   props:PropTypes.object,
 };

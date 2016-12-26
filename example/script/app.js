@@ -1,6 +1,16 @@
 import React, {PropTypes} from 'react';
 import {PlayGround,EditGround,EditSelector} from '../../src/index.js';
 
+const editorConfig={
+  image:{
+    uploadPath:'http://admincp1.zhangtu.com/upload/focus_upload',
+    uploadName :'image',
+    onSuccess : (resp) => {
+      return 'url';
+    }
+  }
+}
+
 const exampleData = [
   {
     compName : 'text',
@@ -9,15 +19,16 @@ const exampleData = [
     }
   },
   {
-    compName : 'text',
+    compName : 'title',
     props : {
       text : 'hello world 2'
     }
   },
   {
-    compName : 'text',
+    compName : 'image',
     props : {
-      text : 'hello world 3'
+      url : 'http://img01.zhangtu.com/pic/201509/24/5603c2721ba26317_t_6340.jpg@700w.jpg',
+      desc:'圆明园'
     }
   },
   {
@@ -45,6 +56,7 @@ export default class MyEditorExample extends React.Component {
   }
 
   onUpdate = (newData) => {
+
     this.setState({data:newData})
   }
 
@@ -65,7 +77,9 @@ export default class MyEditorExample extends React.Component {
         <EditGround
           data={this.state.data}
           currentIndex={this.state.currentEditIndex}
-          onUpdate={this.onUpdate} />
+          onUpdate={this.onUpdate}
+          config={editorConfig}
+          />
         <br/>
         <EditSelector
           data={this.state.data}

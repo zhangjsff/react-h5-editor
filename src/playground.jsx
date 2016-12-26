@@ -13,7 +13,6 @@ const switchElement = (from,to,data) => {
     newData.splice(to,0,fromData)
   }
 
-  console.log(newData)
   return newData.filter(item => !!item)
 }
 
@@ -22,8 +21,9 @@ export default class Playground extends React.Component {
   static get defaultProps() {
     return {
       conf:{
-        comps:['text']
+        comps:{},
       },
+      extendComps : {},
       data : [],
       onElementClick(){},
       onUpdate(){},
@@ -32,6 +32,7 @@ export default class Playground extends React.Component {
 
   constructor(props) {
     super(props);
+    this.comps = {...props.extendComps, ...comps}
   }
 
   onElementClick(index,item){
@@ -39,6 +40,12 @@ export default class Playground extends React.Component {
       index = -1;
     }
     this.props.onElementClick(index,item)
+  }
+
+  onDelete(index){
+    let newData = this.props.data;
+    newData[index] = null;
+    this.props.onUpdate(newData.filter(item => !!item))
   }
 
   _dragEnd(e){
@@ -78,7 +85,7 @@ export default class Playground extends React.Component {
 
     return this.props.data.map((item,index) => {
 
-      let comp = comps[item.compName].comp
+      let comp = this.comps[item.compName].comp
       let isSelected = (index == this.props.currentIndex)
       return React.createElement(comp,{
         key:index,
@@ -91,7 +98,23 @@ export default class Playground extends React.Component {
           onClick:this.onElementClick.bind(this,index,item)
         },
         "data-props":item.props,
+        children:(<div className="react-h5-editor-children">
+                    {this._renderDelete(index)}
+                    {this._renderMask()}
+                  </div>)
       })
     })
+  }
+
+  _renderDelete(index){
+    if(this.props.onUpdate){
+      return <div className="react-h5-editor-delete" onClick={this.onDelete.bind(this,index)}>X</div>
+    }
+  }
+
+  _renderMask(){
+    if(this.props.onUpdate){
+      return <div className="react-h5-editor-mask"></div>
+    }
   }
 }

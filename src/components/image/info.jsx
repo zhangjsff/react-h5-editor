@@ -5,13 +5,14 @@ export const comp = _comp;
 export const editor = _editor;
 
 export const info = {
-  compName : 'text',
-  name:'text',
-  cn_name: '段落',
-  desc : 'a text comp',
-  cn_desc: '段落',
+  compName : 'image',
+  name:'image',
+  cn_name: '图片',
+  desc : 'a image comp',
+  cn_desc: '图片',
   thumbs : '',
   props:{
-    text:'change your text'
+    url:false,
+    desc:'图片说明'
   }
 }

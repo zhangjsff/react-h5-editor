@@ -2,6 +2,28 @@
   display: block;
   position: relative;
   &[data-selected=true]{
-    border: 1px solid #0cb69c;
+    border: 1px dotted #0cb69c;
+  }
+  .react-h5-editor-children{
+
+    .react-h5-editor-delete{
+      position: absolute; top:0;right:0; display: none; cursor: pointer; text-indent: 0;
+      width: 30px; height: 30px; line-height: 30px; text-align: center; color: white;
+      background: rgba(0,0,0,.7);
+    }
+  }
+
+  &:hover {
+    .react-h5-editor-children{
+        .react-h5-editor-delete{ display: block; z-index: 110;}
+        .react-h5-editor-mask{ position: absolute; top:0; right:0; bottom:0; left:0; z-index: 100;}
+    }
+  }
+
+}
+
+.react-h5-selector{
+  li{
+    margin-right: 5px; margin-bottom: 5px;
   }
 }

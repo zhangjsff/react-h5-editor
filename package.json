@@ -1,10 +1,11 @@
 {
   "name": "react-h5-page-editor",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A editor structure for front and back system, edit page by cmoponents",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
-    "find-parent": "^2.0.2"
+    "find-parent": "^2.0.2",
+    "rc-upload": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.20.0",
@@ -27,6 +28,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server "
   },
-  "author": "",
+  "author": "Jiansong ZHANG",
   "license": "ISC"
 }

@@ -20,7 +20,7 @@ export default class TextEditor extends React.Component {
     let props = this.props.props;
     return (
       <div className="react-h5-text-editor">
-        <input type="text" value={props.text} onChange={this.onChange}/>
+        <textarea type="text" value={props.text} onChange={this.onChange} />
       </div>
     );
   }

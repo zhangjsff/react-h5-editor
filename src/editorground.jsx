@@ -5,15 +5,18 @@ import CompSelecor from './selector.jsx'
 export default class EditorGround extends React.Component {
   static get defaultProps(){
     return {
-      conf:{},
+      config:{},
+      extendComps:{},
       data : [],
-      elementIndex:undefined,
+      currentIndex:undefined,
       onUpdate(){},
     }
   }
 
   constructor(props) {
     super(props);
+
+    this.comps = {...props.extendComps, ...comps}
   }
 
   componentWillUpdate(nextProps){
@@ -23,37 +26,44 @@ export default class EditorGround extends React.Component {
 
   onChange = (newElementData) => {
     newElementData.compName = this.elementData.compName
+
     let newData = this.props.data;
-    newData[this.props.elementIndex] = newElementData
-    this.props.onUpdate(newData);
+
+    newData[this.props.currentIndex] = newElementData
+
+    this.props.onUpdate([...newData],this.props.currentIndex);
   }
 
   render() {
 
     return (
-      <div>
-        {this._renderEditor()}        
+      <div className="react-h5-editor-ground">
+        {this._renderEditor()}
       </div>
     );
   }
 
   _renderEditor(){
-    if(!this.elementData){ return }
+    if(!this.elementData){
+      return <p>添加组件，或者在预览中选择组件进行编辑</p>
+    }
 
     let editor = this.elementData;
-    let comp =   comps[editor.compName].editor;
-
+    let comp =   this.comps[editor.compName].editor;
     //todo if !comp try customer comp
     if(!comp){
 
     }
+
+    let config = this.props.config[editor.compName];
 
     return React.createElement(
       comp,
       {
         compName : editor.compName,
         props : editor.props,
-        onChange : this.onChange
+        onChange : this.onChange,
+        config: config || {}
       }
     )
   }
