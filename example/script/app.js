@@ -1,9 +1,12 @@
 import React, {PropTypes} from 'react';
 import {PlayGround,EditGround,EditSelector} from '../../src/index.js';
+import * as text2 from './customer-component/text/info.jsx';
+const extendComps = { text2 }
 
 const editorConfig={
   image:{
     uploadPath:'http://admincp1.zhangtu.com/upload/focus_upload',
+
     uploadName :'image',
     onSuccess : (resp) => {
       return 'url';
@@ -72,18 +75,23 @@ export default class MyEditorExample extends React.Component {
           data={this.state.data}
           currentIndex={this.state.currentEditIndex}
           onElementClick={this.onElementClick}
-          onUpdate={this.onUpdate} />
+          onUpdate={this.onUpdate}
+          extendComps={extendComps}
+          />
         <br/>
         <EditGround
           data={this.state.data}
           currentIndex={this.state.currentEditIndex}
           onUpdate={this.onUpdate}
           config={editorConfig}
+          extendComps={extendComps}
           />
         <br/>
         <EditSelector
           data={this.state.data}
-          onUpdate={this.onUpdate} />
+          currentIndex={this.state.currentEditIndex}
+          onUpdate={this.onUpdate}
+          extendComps={extendComps} />
       </div>
     );
   }

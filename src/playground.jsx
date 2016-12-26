@@ -26,7 +26,7 @@ export default class Playground extends React.Component {
       extendComps : {},
       data : [],
       onElementClick(){},
-      onUpdate(){},
+      onUpdate:false,
     }
   }
 
