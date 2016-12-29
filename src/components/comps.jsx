@@ -1,3 +1,6 @@
+import * as _space from './space/info.jsx';
+export const space = _space
+
 import * as _text from './text/info.jsx';
 export const text = _text
 
@@ -9,6 +12,3 @@ export const title = _title
 
 import * as _link from './link/info.jsx';
 export const link = _link
-
-import * as _space from './space/info.jsx';
-export const space = _space

@@ -90,7 +90,7 @@ export default class Playground extends React.Component {
       return React.createElement(comp,{
         key:index,
         props:{
-          draggable:true,
+          draggable:!!this.props.onUpdate,
           'data-index':index+1,
           'data-selected' : isSelected,
           onDragEnd:this._dragEnd.bind(this),
