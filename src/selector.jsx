@@ -23,8 +23,10 @@ export default class ComponentSelector extends React.Component {
 
     let newData = this.props.data;
     let currentIndex = this.props.currentIndex >= 0 ? (this.props.currentIndex + 1) : newData.length
-    if(!Number.isNaN(customerIndex)){currentIndex = customerIndex}
+    if(typeof customerIndex == 'number'){currentIndex = customerIndex }
+
     newData.splice(currentIndex,0,newElement);
+
     this.props.onUpdate(newData,currentIndex);
   }
 
@@ -42,7 +44,7 @@ export default class ComponentSelector extends React.Component {
     let list = [];
     for(let i in this.comps){
       let info = this.comps[i].info;
-      let index = this.comps[i].index;
+      let index = this.comps[i].info.index;
       list.push(<li key={i} onClick={() => this.onClick(info,index)}>{info.cn_name}</li>)
     }
 

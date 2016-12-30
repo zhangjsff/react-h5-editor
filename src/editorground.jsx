@@ -21,6 +21,8 @@ export default class EditorGround extends React.Component {
 
   componentWillUpdate(nextProps){
     this.elementData = nextProps.data[nextProps.currentIndex]
+
+    console.log(this.elementData)
     return true
   }
 
@@ -50,10 +52,6 @@ export default class EditorGround extends React.Component {
 
     let editor = this.elementData;
     let comp =   this.comps[editor.compName].editor;
-    //todo if !comp try customer comp
-    if(!comp){
-
-    }
 
     let config = this.props.config[editor.compName];
 
