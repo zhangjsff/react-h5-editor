@@ -5,7 +5,7 @@ const extendComps = { text2 }
 
 const editorConfig={
   image:{
-    uploadPath:'http://admincp1.zhangtu.com/upload/focus_upload',
+    uploadPath:'http://yoursiteupload/path',
 
     uploadName :'image',
     onSuccess : (resp) => {
